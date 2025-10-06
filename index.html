@@ -3,309 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ian Chan | Deep-Tech & Financial Analysis</title>
-    <style>
-        /* --- Global Styles & Variables --- */
-        :root {
-            --bg-color: #1a1a1a;
-            --text-color: #e0e0e0;
-            --primary-color: #00aaff;
-            --secondary-color: #2c2c2c;
-            --header-font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            --body-font: 'Georgia', serif;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            font-family: var(--body-font);
-            margin: 0;
-            line-height: 1.6;
-            font-size: 18px;
-        }
-
-       .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        /* --- Header & Navigation --- */
-        header {
-            background-color: rgba(26, 26, 26, 0.9);
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--secondary-color);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        nav.logo {
-            font-family: var(--header-font);
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--text-color);
-            text-decoration: none;
-        }
-
-        nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-        }
-
-        nav ul li {
-            margin-left: 25px;
-        }
-
-        nav ul li a {
-            color: var(--text-color);
-            text-decoration: none;
-            font-family: var(--header-font);
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        nav ul li a:hover {
-            color: var(--primary-color);
-        }
-
-        /* --- Hero Section --- */
-       .hero {
-            padding-top: 150px;
-            padding-bottom: 100px;
-            text-align: center;
-        }
-
-       .hero h1 {
-            font-family: var(--header-font);
-            font-size: 3.5rem;
-            margin-bottom: 10px;
-        }
-
-       .hero h2 {
-            font-family: var(--header-font);
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            font-weight: 400;
-            margin-bottom: 20px;
-        }
-
-       .hero p {
-            max-width: 600px;
-            margin: 0 auto 40px auto;
-            font-size: 1.1rem;
-        }
-
-        /* --- Project Cards Section --- */
-       .project-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-       .project-card {
-            background-color: var(--secondary-color);
-            padding: 30px;
-            border-radius: 8px;
-            text-decoration: none;
-            color: var(--text-color);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid #444;
-        }
-
-       .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-
-       .project-card h3 {
-            font-family: var(--header-font);
-            color: var(--primary-color);
-            margin-top: 0;
-        }
-
-        /* --- Project Detail Pages --- */
-       .project-page {
-            padding-top: 100px;
-            border-bottom: 1px solid var(--secondary-color);
-            padding-bottom: 50px;
-        }
-
-       .project-page h2 {
-            font-family: var(--header-font);
-            font-size: 2.8rem;
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--primary-color);
-            padding-bottom: 10px;
-            margin-bottom: 30px;
-        }
-
-       .project-page h3 {
-            font-family: var(--header-font);
-            font-size: 1.6rem;
-            color: #cccccc;
-            margin-top: 40px;
-            border-left: 3px solid var(--primary-color);
-            padding-left: 15px;
-        }
-        
-       .project-page ul {
-            list-style-type: none;
-            padding-left: 0;
-        }
-
-       .project-page li {
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="%2300aaff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>') no-repeat left center;
-            padding-left: 30px;
-            margin-bottom: 15px;
-        }
-
-        /* --- Footer --- */
-        footer {
-            text-align: center;
-            padding: 40px 20px;
-            margin-top: 50px;
-            border-top: 1px solid var(--secondary-color);
-        }
-
-       .footer-links a {
-            color: var(--text-color);
-            text-decoration: none;
-            margin: 0 15px;
-            font-family: var(--header-font);
-            transition: color 0.3s ease;
-        }
-
-       .footer-links a:hover {
-            color: var(--primary-color);
-        }
-
-        /* --- Responsive Design --- */
-        @media (max-width: 768px) {
-           .hero h1 {
-                font-size: 2.5rem;
-            }
-           .project-grid {
-                grid-template-columns: 1fr;
-            }
-            nav ul {
-                display: none; /* Simple responsive solution for a small site */
-            }
-        }
-
-    </style>
+    <title>Ian Chan | Quantitative Analyst</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <header>
-        <nav>
-            <a href="#home" class="logo">IAN CHAN</a>
-            <ul>
-                <li><a href="#project1">Case Study 1</a></li>
-                <li><a href="#project2">Case Study 2</a></li>
-            </ul>
-        </nav>
+    <header class="site-header">
+        <div class="wrapper">
+            <div class="site-header__inner">
+                <a href="index.html" class="site-header__logo">Ian H.Y. Chan</a>
+                <nav class="site-header__nav">
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#theses">Investment Theses</a></li>
+                        <li><a href="assets/Ian_Chan_CV.pdf" target="_blank">CV</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
     </header>
 
     <main>
-        <div id="home" class="hero container">
-            <h1>Ian Chan</h1>
-            <h2>Deep-Tech Analyst & Biomedical Engineer</h2>
-            <p>A biomedical engineer with a passion for transforming technical innovations into commercially viable solutions. Below are investment case studies on two key projects.</p>
-            <div class="project-grid">
-                <a href="#project1" class="project-card">
-                    <h3>Case Study 01</h3>
-                    <p>Wearable Pulse Oximeter: An analysis of a patient-centric health monitor with a distinct competitive edge in the remote patient monitoring market.</p>
-                </a>
-                <a href="#project2" class="project-card">
-                    <h3>Case Study 02</h3>
-                    <p>Objective Pain Quantification: An evaluation of a first-in-class device poised to disrupt the clinical trial market for pain therapeutics.</p>
-                </a>
+        <section id="hero">
+            <div class="wrapper">
+                <div class="hero__content">
+                    <h1>From Biomedical Signals to Market Signals</h1>
+                    <p>A quantitative approach to valuing the intersection of technology and health.</p>
+                </div>
             </div>
-        </div>
+        </section>
 
-        <div class="container">
-            <section id="project1" class="project-page">
-                <h2>Case Study: Wearable Pulse Oximeter</h2>
-                
-                <h3>Executive Summary</h3>
-                <p>This project involved the end-to-end development of a patient-centric wearable pulse oximeter, from concept to a functional, award-winning prototype. The device targets the rapidly expanding remote patient monitoring market, offering a superior value proposition through enhanced accuracy and extended operational life. The proposed B2B commercialization strategy positions the device as a high-value asset for hospitals and telehealth providers seeking to improve post-operative patient outcomes and reduce readmission rates.</p>
+        <section id="about">
+            <div class="wrapper">
+                <h2>About Me</h2>
+                <div class="about__content">
+                    <div class="about__image">
+                        <img src="assets/headshot.jpg" alt="Headshot of Ian Chan">
+                    </div>
+                    <div class="about__text">
+                        <p>As a biomedical engineer, I was trained to solve complex problems by building predictive models from physiological data and developing novel technologies. My work taught me that the most elegant technical solution is meaningless without a rigorous understanding of its commercial viability.</p>
+                        <p>Through projects like the 'Award-Winning Wearable Pulse Oximeter,' I discovered my passion was not just in building the technology, but in the preceding analysis: identifying the market gap, assessing commercial viability, and building the business case. This process was a direct parallel to investment analysis.</p>
+                        <p>The common thread in my career has always been a drive to use quantitative analysis to translate complex systems—be they biological or financial—into actionable, high-impact decisions. I am now channeling this unique synthesis of technical and commercial acumen into a career in equity research, where I can apply first-principles thinking to value the next generation of biotech and health-tech companies.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                <h3>Technical Innovation (The Alpha)</h3>
-                <ul>
-                    <li>Developed a proprietary signal processing algorithm (FFT in MATLAB) that filters motion artifacts, achieving 95% accuracy and improving data reliability by over 15% compared to existing consumer-grade devices.</li>
-                    <li>Engineered a low-power, flexible sensor array enabling continuous, uninterrupted monitoring for over 72 hours, a significant improvement on the 24-48 hour lifespan of current market alternatives.</li>
-                    <li>Designed as a fully integrated system, combining hardware with a robust business case, demonstrating a holistic understanding of the product lifecycle from scientific validation to market entry.</li>
-                </ul>
+        <section id="theses">
+            <div class="wrapper">
+                <h2>Investment Theses</h2>
+                <div class="theses__grid">
+                    <article class="card">
+                        <div class="card__content">
+                            <h3>Thesis 01: Wearable Pulse Oximeter</h3>
+                            <p>An analysis of a novel remote patient monitoring device, framing its technical innovation and award-winning design as the foundation for a compelling, investment-grade business case in the rapidly growing telehealth market.</p>
+                            <a href="pulse-oximeter.html" class="button">Read Case Study</a>
+                        </div>
+                    </article>
+                    <article class="card">
+                        <div class="card__content">
+                            <h3>Thesis 02: Objective Pain Quantification</h3>
+                            <p>A deep dive into a machine learning model that predicts pain levels from physiological data. This case study demonstrates a quantamental approach to generating proprietary signals from alternative data sources (GSR, EMG).</p>
+                            <a href="pain-quantification.html" class="button">Read Case Study</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
 
-                <h3>Market Analysis</h3>
-                <ul>
-                    <li>Targets the global remote patient monitoring (RPM) market, a sector projected to grow significantly as healthcare systems shift towards decentralized care.</li>
-                    <li>Initial addressable market focuses on post-operative recovery patients, a critical segment where continuous, accurate monitoring can directly impact clinical outcomes and reduce costly hospital readmissions.</li>
-                    <li>The market is currently fragmented with devices that lack either clinical-grade accuracy or the battery life required for multi-day monitoring, presenting a clear opportunity for a superior product.</li>
-                </ul>
-
-                <h3>Commercial Viability</h3>
-                <ul>
-                    <li>Proposed a B2B sales model targeting hospitals and telehealth service providers, offering the device as part of a comprehensive patient monitoring package.</li>
-                    <li>The Unique Selling Proposition (USP) is a combination of superior accuracy (95%) and extended battery life (72+ hours), creating a strong competitive moat against incumbents.</li>
-                    <li>The device's ability to provide reliable, long-term data reduces the need for frequent nurse check-ins and enables early detection of complications, offering a clear ROI for healthcare providers through improved efficiency and patient care.</li>
-                </ul>
-            </section>
-
-            <section id="project2" class="project-page">
-                <h2>Case Study: Objective Pain Quantification Device</h2>
-
-                <h3>Executive Summary</h3>
-                <p>This project developed a predictive pain index by applying machine learning models to physiological data, creating a first-mover advantage in a market reliant on subjective, qualitative pain scales. The device is a non-invasive tool designed to provide objective, real-time pain data, targeting the high-value clinical trial market for new analgesic drugs. The proposed Data-as-a-Service (DaaS) model offers a scalable, high-margin revenue stream by providing pharmaceutical companies and CROs with the reliable, quantifiable data needed to accelerate drug development and secure regulatory approval.</p>
-
-                <h3>Technical Innovation (The Alpha)</h3>
-                <ul>
-                    <li>Created a novel composite pain biomarker by applying machine learning and regression models (Python, Scikit-learn) to complex physiological data streams, including Galvanic Skin Response (GSR) and Electromyography (EMG).</li>
-                    <li>Engineered a non-invasive wearable sensor that provides real-time, quantifiable pain data to a clinician's dashboard, replacing the antiquated 1-10 subjective pain scale with objective metrics.</li>
-                    <li>The predictive index demonstrates advanced data modeling capabilities, translating noisy biological signals into a clear, actionable pain score.</li>
-                </ul>
-
-                <h3>Market Analysis</h3>
-                <ul>
-                    <li>Addresses a critical unmet need within the multi-billion dollar clinical drug trial market for pain therapeutics, where objective efficacy data is paramount for FDA and EMA approval.</li>
-                    <li>The primary target market consists of pharmaceutical companies and Contract Research Organizations (CROs) that stand to save millions in trial costs and time with more reliable endpoint data.</li>
-                    <li>The current market standard (patient-reported pain scores) is notoriously unreliable and subject to placebo effects, creating significant risk and cost in drug development. This device directly mitigates that risk.</li>
-                </ul>
-
-                <h3>Commercial Viability</h3>
-                <ul>
-                    <li>Positioned for a high-margin Data-as-a-Service (DaaS) or licensing model, providing trial sponsors with access to the device and its data analytics platform on a per-patient or per-trial basis.</li>
-                    <li>Establishes a strong competitive moat as a first-mover in a niche with no existing objective measurement tools, creating high switching costs for clients who integrate the data into their trial protocols.</li>
-                    <li>The ability to provide objective proof of a drug's efficacy can de-risk the development process, accelerate time-to-market, and strengthen a new drug's value proposition to regulators and insurers, representing immense value to clients.</li>
-                </ul>
-            </section>
-        </div>
+        <section id="contact">
+            <div class="wrapper">
+                <h2>Get In Touch</h2>
+                <p>I am always open to discussing new opportunities and connecting with fellow professionals. Please feel free to reach out.</p>
+                <div class="contact__links">
+                    <a href="mailto:ianchanhy@gmail.com" class="button">Email</a>
+                    <a href="https://www.linkedin.com/" target="_blank" class="button">LinkedIn</a>
+                    <a href="https://github.com/ianchanhy" target="_blank" class="button">GitHub</a>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <footer>
-        <div class="container footer-links">
-            <a href="mailto:ianchanhy@gmail.com">Email</a> &bull;
-            <a href="https://www.linkedin.com/in/ian-chan-6266b5239" target="_blank">LinkedIn</a> &bull;
-            <a href="" target="_blank">Download CV</a>
+    <footer class="site-footer">
+        <div class="wrapper">
+            <p>&copy; 2025 Ian H.Y. Chan. All Rights Reserved.</p>
         </div>
     </footer>
 

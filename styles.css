@@ -1,0 +1,272 @@
+/* --- CSS RESET --- */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Lora', serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+    background-color: #FFFFFF;
+}
+
+/* --- CSS VARIABLES --- */
+:root {
+    --primary-color: #0A2342; /* Deep Navy */
+    --accent-color: #CA5310;  /* Burnt Orange */
+    --text-light: #FFFFFF;
+    --text-dark: #333333;
+    --heading-font: 'Montserrat', sans-serif;
+    --body-font: 'Lora', serif;
+}
+
+/* --- UTILITY & LAYOUT --- */
+.wrapper {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+h1, h2, h3 {
+    font-family: var(--heading-font);
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 16px;
+}
+
+h1 { font-size: 3rem; }
+h2 { font-size: 2.25rem; text-align: center; margin-bottom: 48px; }
+h3 { font-size: 1.5rem; }
+
+p {
+    margin-bottom: 16px;
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.button {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--text-light);
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-family: var(--heading-font);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.button:hover {
+    background-color: #A8450E; /* Darker orange */
+    transform: translateY(-2px);
+}
+
+section {
+    padding: 80px 0;
+}
+
+/* --- HEADER --- */
+.site-header {
+    background-color: var(--primary-color);
+    padding: 16px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.site-header__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.site-header__logo {
+    font-family: var(--heading-font);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-light);
+}
+
+.site-header__nav ul {
+    list-style: none;
+    display: flex;
+    gap: 24px;
+}
+
+.site-header__nav a {
+    color: var(--text-light);
+    font-family: var(--heading-font);
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+.site-header__nav a:hover {
+    color: var(--accent-color);
+}
+
+/* --- HERO SECTION --- */
+#hero {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    text-align: center;
+    padding: 120px 0;
+}
+
+#hero h1 {
+    color: var(--text-light);
+}
+
+#hero p {
+    font-size: 1.25rem;
+    font-family: var(--body-font);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* --- ABOUT SECTION --- */
+.about__content {
+    display: flex;
+    gap: 48px;
+    align-items: center;
+}
+
+.about__image {
+    flex: 1;
+    max-width: 300px;
+}
+
+.about__image img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.about__text {
+    flex: 2;
+}
+
+/* --- INVESTMENT THESES SECTION --- */
+#theses {
+    background-color: #f8f9fa;
+}
+
+.theses__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+}
+
+.card {
+    background-color: #FFFFFF;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.card__content {
+    padding: 32px;
+}
+
+.card__content p {
+    margin-bottom: 24px;
+}
+
+/* --- CONTACT SECTION --- */
+#contact {
+    text-align: center;
+}
+
+#contact p {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 32px;
+}
+
+.contact__links {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+/* --- FOOTER --- */
+.site-footer {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    text-align: center;
+    padding: 24px 0;
+    font-size: 0.9rem;
+}
+
+/* --- PROJECT PAGE STYLES --- */
+.project-header {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 80px 0;
+    text-align: center;
+}
+
+.project-header h1 {
+    color: var(--text-light);
+}
+
+.project-content {
+    padding: 80px 0;
+}
+
+.project-content.wrapper {
+    max-width: 800px;
+}
+
+.project-content h3 {
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 8px;
+    margin-top: 40px;
+    margin-bottom: 24px;
+}
+
+.back-link {
+    display: block;
+    text-align: center;
+    margin-top: 60px;
+    font-family: var(--heading-font);
+    font-weight: 700;
+}
+
+
+/* --- RESPONSIVE DESIGN --- */
+@media (max-width: 768px) {
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
+
+   .site-header__inner {
+        flex-direction: column;
+        gap: 16px;
+    }
+    
+   .about__content {
+        flex-direction: column;
+    }
+
+   .theses__grid {
+        grid-template-columns: 1fr;
+    }
+}
