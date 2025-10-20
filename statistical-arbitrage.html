@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project: Statistical Arbitrage Engine | Ian Chan</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="project-header">
+        <div class="wrapper">
+            <h1>Project: Statistical Arbitrage Engine</h1>
+            <p>A Python engine built to backtest a classic pairs trading strategy from scratch.</p>
+        </div>
+    </header>
+
+    <main class="project-content">
+        <div class="wrapper">
+            <h3>The Motivation: From Biomedical Signals to Market Signals</h3>
+            <p>As a recent Biomedical Engineering graduate, my background is in analyzing complex, often noisy, time-series data like ECG and EEG signals to find meaningful patterns. I became fascinated with quantitative finance because it presents a similar challenge: extracting predictive signals from the apparent noise of financial markets.</p>
+            <p>This project was my hands-on dive into this world. I wanted to see if I could apply the same rigorous, data-driven mindset I developed in engineering to build a complete algorithmic trading strategy from the ground up. I chose pairs trading because it's a classic statistical arbitrage strategy that perfectly blends statistics, time-series analysis, and programming.</p>
+
+            <h3>The Engine: A Technical Breakdown</h3>
+            <p>I structured the project as a single Python class, <code>PairsTradingBacktester</code>, to keep the logic organized and reusable. The engine's workflow can be broken down into four main steps: Data Fetching, Signal Calculation, Backtesting, and Analysis.</p>
+            
+            <h3>Signal Calculation</h3>
+            <p>This is the core of the strategy. Instead of trading the stocks directly, the strategy trades their <strong>spread</strong> (Price of Stock 1 - Price of Stock 2). The assumption is that this spread will tend to revert to its historical mean. To identify trading opportunities, I used Bollinger Bands and the Z-Score:</p>
+            <ul>
+                <li><strong>Spread:</strong> The simple difference between the pair's prices.</li>
+                <li><strong>Moving Average:</strong> The historical mean of the spread over a 20-day lookback period.</li>
+                <li><strong>Z-Score:</strong> This normalizes the spread, telling us exactly how many standard deviations it is from the mean. A Z-Score of +2.0 or -2.0 is my signal to enter a trade.</li>
+            </ul>
+
+            <h3>Backtesting the Logic</h3>
+            <p>The backtesting method iterates through the historical data day-by-day, simulating trades based on the Z-Score:</p>
+            <ul>
+                <li><strong>Entry Signal:</strong> If not in a trade, a position is opened when the Z-Score exceeds +/- 2.0. If the spread is unusually high (Z > +2.0), the engine shorts the spread. If it's unusually low (Z < -2.0), it longs the spread.</li>
+                <li><strong>Exit Signal:</strong> The position is closed when the Z-Score reverts back to its mean (Z-Score = 0), capturing the profit from the mean-reversion.</li>
+            </ul>
+
+            <h3>Key Learnings & Next Steps</h3>
+            <p>This project was a fantastic learning experience that solidified my interest in quantitative finance. It was a practical application of statistics and Python programming to solve a real-world analytical problem.</p>
+            <ul>
+                <li><strong>Skills Demonstrated:</strong> Quantitative Analysis, Python, Pandas, Time-Series Manipulation, Algorithmic Thinking, Data Visualization.</li>
+                <li><strong>Future Improvements:</strong> For a more robust version, I would explore using cointegration tests (like the Augmented Dickey-Fuller test) for pair selection and incorporate transaction costs for a more realistic backtest.</li>
+            </ul>
+
+            <a href="index.html#projects" class="back-link">← Back to All Projects</a>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="wrapper">
+            <p>&copy; 2025 Ian H.Y. Chan. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
