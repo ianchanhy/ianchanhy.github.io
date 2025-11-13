@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import {
   Main,
-  Timeline,
+  // Timeline, // <-- Removed this
   Expertise,
   Project,
   Contact,
@@ -32,7 +32,7 @@ function App() {
         <FadeIn transitionDuration={700}>
             <Main/>
             <Expertise/>
-            <Timeline/>
+            {/* <Timeline/> // <-- Removed this */}
             <Project/>
             <Contact/>
         </FadeIn>
